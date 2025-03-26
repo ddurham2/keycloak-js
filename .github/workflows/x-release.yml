@@ -95,11 +95,11 @@ jobs:
           echo "https://github.com/${{ inputs.gh-org }}/keycloak-js/tree/${{ inputs.tag }}  " >> $GITHUB_STEP_SUMMARY
           echo "https://github.com/${{ inputs.gh-org }}/keycloak-js/releases/tag/${{ inputs.tag }}  " >> $GITHUB_STEP_SUMMARY
 
-      - name: Publish to NPM
-        if: ${{ !inputs.nightly }}
-        run: npm publish keycloak-js.tgz --access public --ignore-scripts ${{ inputs.gh-org != 'keycloak' && ' --dry-run' || '' }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #- name: Publish to NPM
+      #  if: ${{ !inputs.nightly }}
+      #  run: npm publish keycloak-js.tgz --access public --ignore-scripts ${{ inputs.gh-org != 'keycloak' && ' --dry-run' || '' }}
+      #  env:
+      #    NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Show Output NPM
         if: ${{ !inputs.nightly && inputs.gh-org == 'keycloak' }}
